@@ -75,6 +75,5 @@ namespace ADO
             connection.Close();
             return value;
         }
-
     }
 }
