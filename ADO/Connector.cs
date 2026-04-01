@@ -75,5 +75,21 @@ namespace ADO
             connection.Close();
             return value;
         }
+        public void Insert(int Director_id, string First_name, string Last_name)//Directors
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(
+                       ($"INSERT Directors(director_id, first_name, last_name) VALUES ({Director_id}, {First_name}, {Last_name})"), connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void Insert(int Mouvie_id, string Title, string Release_date, int Director)//Movies
+        {
+            connection.Open();
+            SqlCommand command = new SqlCommand(
+                        ($"INSERT Movies(mouvie_id, title, release_date, director) VALUES ({Mouvie_id}, {Title}, {Release_date}, {Director})"),connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }

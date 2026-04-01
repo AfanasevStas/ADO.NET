@@ -18,6 +18,9 @@ namespace ADO
             string connection_string = ConfigurationManager.ConnectionStrings["Movies"].ConnectionString;
             Connector connector = new Connector(connection_string);
 
+            connector.Insert(7, "Test", "Testovich");
+            connector.Insert(8, "Test Film", "2026-04-01",7);
+
             connector.Select("SELECT * FROM Directors");
             connector.Select("title,first_name,last_name","Movies,Directors","director=director_id");
             //Console.WriteLine(connection_string);
