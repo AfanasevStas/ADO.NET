@@ -77,17 +77,17 @@ namespace ADO
         }
         public void Insert(int Director_id, string First_name, string Last_name)//Directors
         {
+            string cmd = ($"INSERT Directors(director_id, first_name, last_name) VALUES ({Director_id}, {First_name}, {Last_name})");
             connection.Open();
-            SqlCommand command = new SqlCommand(
-                       ($"INSERT Directors(director_id, first_name, last_name) VALUES ({Director_id}, {First_name}, {Last_name})"), connection);
+            SqlCommand command = new SqlCommand(cmd, connection); 
             command.ExecuteNonQuery();
             connection.Close();
         }
         public void Insert(int Mouvie_id, string Title, string Release_date, int Director)//Movies
         {
+            string cmd = $"INSERT Movies(mouvie_id, title, release_date, director) VALUES ({Mouvie_id}, {Title}, {Release_date}, {Director})";
             connection.Open();
-            SqlCommand command = new SqlCommand(
-                        ($"INSERT Movies(mouvie_id, title, release_date, director) VALUES ({Mouvie_id}, {Title}, {Release_date}, {Director})"),connection);
+            SqlCommand command = new SqlCommand(cmd,connection);
             command.ExecuteNonQuery();
             connection.Close();
         }
