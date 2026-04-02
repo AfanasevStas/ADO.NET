@@ -18,8 +18,13 @@ namespace ADO
             string connection_string = ConfigurationManager.ConnectionStrings["Movies"].ConnectionString;
             Connector connector = new Connector(connection_string);
 
+            //Console.WriteLine(connector.GetPrimaryKeyColumnName("Movies"));
+            Console.WriteLine(connector.GetNextPrimaryKey("Movies"));
+            connector.Insert($"INSERT Directors(director_id,first_name,last_name)VALUES({connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jackson')");
+
             connector.Select("SELECT * FROM Directors");
-            connector.Select("title,first_name,last_name","Movies,Directors","director=director_id");
+            connector.Select("mouvie_id,title,first_name,last_name","Movies,Directors","director=director_id");
+            
             //Console.WriteLine(connection_string);
             //connection = new SqlConnection(connection_string);
             //string cmd = "SELECT * FROM Directors";
