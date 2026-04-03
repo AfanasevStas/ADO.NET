@@ -17,9 +17,9 @@ namespace ADO
             //string connection_string = "Data Source=(localdb)\\MSSQLLocalDB;Initial Catalog=Movies_PV_522;Integrated Security=True;Connect Timeout=30;Encrypt=False;TrustServerCertificate=False;ApplicationIntent=ReadWrite;MultiSubnetFailover=False";
             string connection_string = ConfigurationManager.ConnectionStrings["Movies"].ConnectionString;
             Connector connector = new Connector(connection_string);
-
-            connector.Insert(8, "N'Test'", "N'Testovich'");
-            connector.Insert(9, "N'Test Film'", "N'2026-04-01'",8);
+            connector.Create_Function_on_Server();
+            connector.Insert(12, "N'Test'", "N'Testovich'");
+            connector.Insert(10, "N'Test Film'", "N'2026-04-01'",12);
 
             connector.Select("SELECT * FROM Directors");
             connector.Select("title,first_name,last_name","Movies,Directors","director=director_id");
