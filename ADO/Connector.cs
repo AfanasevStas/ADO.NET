@@ -96,7 +96,7 @@ namespace ADO
             {
                 string cmd = $"INSERT Movies(mouvie_id, title, release_date, director) VALUES ({Mouvie_id}, {Title}, {Release_date}, {Director})";
                 connection.Open();
-                SqlCommand command = new SqlCommand(cmd,connection);
+                SqlCommand command = new SqlCommand(cmd, connection);
                 command.ExecuteNonQuery();
                 connection.Close();
                 Console.WriteLine("Запись успешна!");
@@ -106,52 +106,48 @@ namespace ADO
         }
         public bool Check_data_in_Table(string first_namE, string last_namE)//Directors check for input
         {
-            string cmd = $"USE Movies_PV_522;\nGO\ndbo.Check_Directors {first_namE},{last_namE}";
+            string cmd = $"SELECT * FROM Directors WHERE (first_name = {first_namE} AND last_name = {last_namE})";
             connection.Open();
             SqlCommand command = new SqlCommand(cmd, connection);
-            int result = (int)command.ExecuteScalar();
+            SqlDataReader reed = command.ExecuteReader();
+            int result = 0;
+            if (reed.HasRows == true)
+                    result += 1;
+            Console.WriteLine(result);
             connection.Close();
-            if (result != 0)
-                return false;
-            else
+            if (result > 0)
+            {
+                result = 0;
                 return true;
-        }
-        public bool Check_data_in_Table(string titlE, string release_datE,int directoR)//Movies check for input
-        {
-            string cmd = $"USE Movies_PV_522;\nGO \ndbo.Check_Movies {titlE},{release_datE},{directoR}";
-            connection.Open();
-            SqlCommand command = new SqlCommand(cmd, connection);
-            int result = (int)command.ExecuteScalar();
-            connection.Close();
-            if (result != 0)
-                return false;
+            }
             else
-                return true;
+            {
+                result = 0;
+                return false;
+            }
         }
-        public void Create_Function_on_Server()//Creating a verification function on the server
+        public bool Check_data_in_Table(string titlE, string release_datE, int directoR)//Movies check for input
         {
-            string cmd =    "CREATE OR ALTER FUNCTION Check_Directors(@first_name AS NVARCHAR(50), @last_name AS NVARCHAR(50))RETURNS INT" +
-                            "\nAS\n" +
-                            "BEGIN\n" +
-                            "DECLARE @res AS INT;" +
-                            "\nSET @res = (SELECT COUNT(director_id) FROM Directors WHERE (first_name = @first_name AND last_name = @last_name));" +
-                            "\nRETURN @res" +
-                            "\nEND;";
-            //--------------------------------------------------------------------------------------------------------------------------------------------------------
-            string cmd_2 = "CREATE OR ALTER FUNCTION Check_Movies(@title AS NVARCHAR(50), @release_date AS DATE, @director AS INT)RETURNS INT" +
-                            "\nAS\n" +
-                            "BEGIN\n" +
-                            "DECLARE @res AS INT;" +
-                            "\nSET @res = (SELECT COUNT(mouvie_id) FROM Movies WHERE (title = @title AND release_date = @release_date AND director = @director));" +
-                            "\nRETURN @res" +
-                            "\nEND;";
-            //--------------------------------------------------------------------------------------------------------------------------------------------------------
+            string cmd = $"SELECT * FROM Movies WHERE (title = {titlE} AND release_date = {release_datE} AND director = {directoR})";
             connection.Open();
             SqlCommand command = new SqlCommand(cmd, connection);
-            SqlCommand command_2 = new SqlCommand(cmd_2, connection);
-            command.ExecuteNonQuery();
-            command_2.ExecuteNonQuery();
+            SqlDataReader reed = command.ExecuteReader();
+            int result = 0;
+            if (reed.HasRows == true)
+                result += 1;
+            
+            Console.WriteLine(result);
             connection.Close();
+            if (result > 0)
+            {
+                result = 0;
+                return true;
+            }
+            else
+            {
+                result = 0;               
+                return false;
+            }
         }
     }
 }
