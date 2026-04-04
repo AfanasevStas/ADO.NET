@@ -106,19 +106,19 @@ namespace ADO
         }
         public bool Check_data_in_Table(string first_namE, string last_namE)//Directors check for input
         {
-            string cmd = $"USE Movies_PV_522;\nGO\ndbo.Check_Directors {first_namE},{last_namE}";
+            string cmd = $"SELECT dbo.Check_Directors({first_namE},{last_namE})";
             connection.Open();
             SqlCommand command = new SqlCommand(cmd, connection);
-            int result = (int)command.ExecuteScalar();
+            object result = command.ExecuteScalar();
             connection.Close();
-            if (result != 0)
+            if (result != null)
                 return false;
             else
                 return true;
         }
         public bool Check_data_in_Table(string titlE, string release_datE,int directoR)//Movies check for input
         {
-            string cmd = $"USE Movies_PV_522;\nGO \ndbo.Check_Movies {titlE},{release_datE},{directoR}";
+            string cmd = $"dbo.Check_Movies {titlE},{release_datE},{directoR}";
             connection.Open();
             SqlCommand command = new SqlCommand(cmd, connection);
             int result = (int)command.ExecuteScalar();
