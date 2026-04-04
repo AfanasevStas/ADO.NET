@@ -20,7 +20,9 @@ namespace ADO
 
             //Console.WriteLine(connector.GetPrimaryKeyColumnName("Movies"));
             Console.WriteLine(connector.GetNextPrimaryKey("Movies"));
-            connector.Insert($"INSERT Directors(director_id,first_name,last_name)VALUES({connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jackson')");
+            //connector.Insert($"INSERT Directors(director_id,first_name,last_name)VALUES({connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jackson')");
+
+            connector.Insert("Directors","director_id,first_name,last_name",$"{connector.GetNextPrimaryKey("Directors")},N'Peter',N'Jackson'");
 
             connector.Select("SELECT * FROM Directors");
             connector.Select("mouvie_id,title,first_name,last_name","Movies,Directors","director=director_id");
