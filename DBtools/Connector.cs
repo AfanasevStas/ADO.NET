@@ -116,6 +116,22 @@ namespace DBtools
             if (Scalar($"SELECT {GetPrimaryKeyColumnName(table)} FROM {table} WHERE {condition} ") != null) return;
             Insert($"INSERT {table}({fields}) VALUES({values})");
         }
+        public void Update(string Old_First_name, string Old_Last_name, string First_name, string Last_name)//Update to Directors Table
+        {
+            string cmd = $"UPDATE Directors SET first_name = N'{First_name}', last_name = N'{Last_name}' WHERE first_name = N'{Old_First_name}' AND last_name = N'{Last_name}'";
+            connection.Open();
+            SqlCommand command = new SqlCommand(cmd, connection); 
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
+        public void Update(string Old_Title, string Old_Release_date, int Old_Director, string Title, string Release_date, int Director)//Update to Movies Table
+        {
+            string cmd = $"UPDATE Movies SET title = N'{Title}', release_date = N'{Release_date}', director = {Director} WHERE title = N'{Old_Title}' AND release_date = N'{Old_Release_date}' AND director = {Old_Director}";
+            connection.Open();
+            SqlCommand command = new SqlCommand(cmd, connection);
+            command.ExecuteNonQuery();
+            connection.Close();
+        }
     }
 }
 

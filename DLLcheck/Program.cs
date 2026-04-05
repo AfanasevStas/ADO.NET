@@ -17,13 +17,15 @@ namespace DLLcheck
                 (
                 ConfigurationManager.ConnectionStrings["Movies_PV_522"].ConnectionString
                 );
+            connector.Update("Test","Testovich","TEST","TESTOVICH");
+            connector.Update("Test Film", "2026-04-01", 12, "TEST FILM", "2026-04-01", 12);
             connector.Select("*", "Directors");
             connector.Select("title,release_date,first_name,last_name", "Movies,Directors","director=director_id");
-            Connector connectorAcademy = new Connector
-                (
-                ConfigurationManager.ConnectionStrings["PV_522_Import"].ConnectionString
-                );
-            connectorAcademy.Select("*", "Disciplines");
+            //Connector connectorAcademy = new Connector
+            //    (
+            //    ConfigurationManager.ConnectionStrings["PV_522_Import"].ConnectionString
+            //    );
+            //connectorAcademy.Select("*", "Disciplines");
         }
 
     }
