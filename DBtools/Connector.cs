@@ -135,12 +135,15 @@ namespace DBtools
                 if (i != s_fields.Length - 1) parsed += ",";
             }
             string cmd = $"UPDATE {table} SET {parsed} WHERE {condition}";
+            if (Scalar($"SELECT {GetPrimaryKeyColumnName(table)} FROM {table} WHERE {parsed.Replace(",", " AND ")} ") == null)
             Update(cmd);
+
         }
         string ParseValue(string value)
         {
             if (value.Length > 1)
             {
+                value = value.Trim();
                 if (value[0] != 'N' && value[1] != '\'') value = $"N'{value}'";
             }
             return value;
