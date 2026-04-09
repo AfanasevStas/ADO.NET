@@ -36,6 +36,10 @@ namespace Academy
             connector = new Connector(ConfigurationManager.ConnectionStrings["PV_522_Import"].ConnectionString);
             dgvDirections.DataSource = connector.Select("SELECT * FROM Directions");
             tabControl_SelectedIndexChanged(tabControl, null);
+
+            cbGroupsDirection.DataSource = connector.Load("SELECT * FROM Directions");
+            cbGroupsDirection.DisplayMember = "direction_name";
+            cbGroupsDirection.ValueMember = "direction_id";
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -44,6 +48,12 @@ namespace Academy
             tables[i].DataSource = connector.Load(queries[i].ToString());
             //tables[i].DataSource = connector.Select("*",tabControl.SelectedTab.Text);
             toolStripStatusLabel.Text = $"Количество записей: {tables[i].RowCount - 1}";
+        }
+
+        private void cbGroupsDirection_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            dgvGroups.DataSource = connector.Load(queries[1].ToString() + $" AND direction={cbGroupsDirection.SelectedValue}");
+            toolStripStatusLabel.Text = $"Количество записей: {dgvGroups.RowCount - 1}";
         }
     }
 }

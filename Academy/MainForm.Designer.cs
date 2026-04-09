@@ -41,6 +41,7 @@
             this.tabPageTeachers = new System.Windows.Forms.TabPage();
             this.dgvTeachers = new System.Windows.Forms.DataGridView();
             this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.cbGroupsDirection = new System.Windows.Forms.ComboBox();
             this.statusStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
             this.tabPageStudents.SuspendLayout();
@@ -105,6 +106,7 @@
             // 
             // tabPageGroups
             // 
+            this.tabPageGroups.Controls.Add(this.cbGroupsDirection);
             this.tabPageGroups.Controls.Add(this.dgvGroups);
             this.tabPageGroups.Location = new System.Drawing.Point(4, 22);
             this.tabPageGroups.Name = "tabPageGroups";
@@ -121,9 +123,9 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dgvGroups.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
             this.dgvGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvGroups.Location = new System.Drawing.Point(0, 22);
+            this.dgvGroups.Location = new System.Drawing.Point(0, 29);
             this.dgvGroups.Name = "dgvGroups";
-            this.dgvGroups.Size = new System.Drawing.Size(554, 231);
+            this.dgvGroups.Size = new System.Drawing.Size(554, 224);
             this.dgvGroups.TabIndex = 1;
             // 
             // tabPageDirections
@@ -201,6 +203,16 @@
             this.toolStripStatusLabel.Size = new System.Drawing.Size(118, 17);
             this.toolStripStatusLabel.Text = "toolStripStatusLabel1";
             // 
+            // cbGroupsDirection
+            // 
+            this.cbGroupsDirection.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cbGroupsDirection.FormattingEnabled = true;
+            this.cbGroupsDirection.Location = new System.Drawing.Point(0, 6);
+            this.cbGroupsDirection.Name = "cbGroupsDirection";
+            this.cbGroupsDirection.Size = new System.Drawing.Size(316, 21);
+            this.cbGroupsDirection.TabIndex = 2;
+            this.cbGroupsDirection.SelectionChangeCommitted += new System.EventHandler(this.cbGroupsDirection_SelectionChangeCommitted);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -243,6 +255,7 @@
         private System.Windows.Forms.DataGridView dgvDisciplines;
         private System.Windows.Forms.DataGridView dgvTeachers;
         private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
+        private System.Windows.Forms.ComboBox cbGroupsDirection;
     }
 }
 
