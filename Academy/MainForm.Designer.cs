@@ -31,18 +31,34 @@
             this.statusStrip = new System.Windows.Forms.StatusStrip();
             this.tabControl = new System.Windows.Forms.TabControl();
             this.tabPageStudents = new System.Windows.Forms.TabPage();
+            this.dgvStudents = new System.Windows.Forms.DataGridView();
             this.tabPageGroups = new System.Windows.Forms.TabPage();
+            this.dgvGroups = new System.Windows.Forms.DataGridView();
             this.tabPageDirections = new System.Windows.Forms.TabPage();
-            this.tabPageDisciplines = new System.Windows.Forms.TabPage();
-            this.tabPageTeachers = new System.Windows.Forms.TabPage();
             this.dgvDirections = new System.Windows.Forms.DataGridView();
+            this.tabPageDisciplines = new System.Windows.Forms.TabPage();
+            this.dgvDisciplines = new System.Windows.Forms.DataGridView();
+            this.tabPageTeachers = new System.Windows.Forms.TabPage();
+            this.dgvTeachers = new System.Windows.Forms.DataGridView();
+            this.toolStripStatusLabel = new System.Windows.Forms.ToolStripStatusLabel();
+            this.statusStrip.SuspendLayout();
             this.tabControl.SuspendLayout();
+            this.tabPageStudents.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).BeginInit();
+            this.tabPageGroups.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).BeginInit();
             this.tabPageDirections.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvDirections)).BeginInit();
+            this.tabPageDisciplines.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisciplines)).BeginInit();
+            this.tabPageTeachers.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).BeginInit();
             this.SuspendLayout();
             // 
             // statusStrip
             // 
+            this.statusStrip.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripStatusLabel});
             this.statusStrip.Location = new System.Drawing.Point(0, 278);
             this.statusStrip.Name = "statusStrip";
             this.statusStrip.Size = new System.Drawing.Size(562, 22);
@@ -62,9 +78,11 @@
             this.tabControl.SelectedIndex = 0;
             this.tabControl.Size = new System.Drawing.Size(562, 278);
             this.tabControl.TabIndex = 1;
+            this.tabControl.SelectedIndexChanged += new System.EventHandler(this.tabControl_SelectedIndexChanged);
             // 
             // tabPageStudents
             // 
+            this.tabPageStudents.Controls.Add(this.dgvStudents);
             this.tabPageStudents.Location = new System.Drawing.Point(4, 22);
             this.tabPageStudents.Name = "tabPageStudents";
             this.tabPageStudents.Padding = new System.Windows.Forms.Padding(3);
@@ -73,8 +91,21 @@
             this.tabPageStudents.Text = "Students";
             this.tabPageStudents.UseVisualStyleBackColor = true;
             // 
+            // dgvStudents
+            // 
+            this.dgvStudents.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvStudents.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvStudents.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvStudents.Location = new System.Drawing.Point(0, 21);
+            this.dgvStudents.Name = "dgvStudents";
+            this.dgvStudents.Size = new System.Drawing.Size(554, 231);
+            this.dgvStudents.TabIndex = 1;
+            // 
             // tabPageGroups
             // 
+            this.tabPageGroups.Controls.Add(this.dgvGroups);
             this.tabPageGroups.Location = new System.Drawing.Point(4, 22);
             this.tabPageGroups.Name = "tabPageGroups";
             this.tabPageGroups.Padding = new System.Windows.Forms.Padding(3);
@@ -82,6 +113,18 @@
             this.tabPageGroups.TabIndex = 1;
             this.tabPageGroups.Text = "Groups";
             this.tabPageGroups.UseVisualStyleBackColor = true;
+            // 
+            // dgvGroups
+            // 
+            this.dgvGroups.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvGroups.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvGroups.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvGroups.Location = new System.Drawing.Point(0, 22);
+            this.dgvGroups.Name = "dgvGroups";
+            this.dgvGroups.Size = new System.Drawing.Size(554, 231);
+            this.dgvGroups.TabIndex = 1;
             // 
             // tabPageDirections
             // 
@@ -94,8 +137,21 @@
             this.tabPageDirections.Text = "Directions";
             this.tabPageDirections.UseVisualStyleBackColor = true;
             // 
+            // dgvDirections
+            // 
+            this.dgvDirections.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDirections.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDirections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDirections.Location = new System.Drawing.Point(0, 22);
+            this.dgvDirections.Name = "dgvDirections";
+            this.dgvDirections.Size = new System.Drawing.Size(554, 231);
+            this.dgvDirections.TabIndex = 0;
+            // 
             // tabPageDisciplines
             // 
+            this.tabPageDisciplines.Controls.Add(this.dgvDisciplines);
             this.tabPageDisciplines.Location = new System.Drawing.Point(4, 22);
             this.tabPageDisciplines.Name = "tabPageDisciplines";
             this.tabPageDisciplines.Padding = new System.Windows.Forms.Padding(3);
@@ -104,8 +160,21 @@
             this.tabPageDisciplines.Text = "Disciplines";
             this.tabPageDisciplines.UseVisualStyleBackColor = true;
             // 
+            // dgvDisciplines
+            // 
+            this.dgvDisciplines.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dgvDisciplines.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvDisciplines.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvDisciplines.Location = new System.Drawing.Point(0, 22);
+            this.dgvDisciplines.Name = "dgvDisciplines";
+            this.dgvDisciplines.Size = new System.Drawing.Size(554, 231);
+            this.dgvDisciplines.TabIndex = 1;
+            // 
             // tabPageTeachers
             // 
+            this.tabPageTeachers.Controls.Add(this.dgvTeachers);
             this.tabPageTeachers.Location = new System.Drawing.Point(4, 22);
             this.tabPageTeachers.Name = "tabPageTeachers";
             this.tabPageTeachers.Padding = new System.Windows.Forms.Padding(3);
@@ -114,16 +183,23 @@
             this.tabPageTeachers.Text = "Teachers";
             this.tabPageTeachers.UseVisualStyleBackColor = true;
             // 
-            // dgvDirections
+            // dgvTeachers
             // 
-            this.dgvDirections.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            this.dgvTeachers.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.dgvDirections.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvDirections.Location = new System.Drawing.Point(0, 22);
-            this.dgvDirections.Name = "dgvDirections";
-            this.dgvDirections.Size = new System.Drawing.Size(554, 231);
-            this.dgvDirections.TabIndex = 0;
+            this.dgvTeachers.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.AllCells;
+            this.dgvTeachers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgvTeachers.Location = new System.Drawing.Point(0, 22);
+            this.dgvTeachers.Name = "dgvTeachers";
+            this.dgvTeachers.Size = new System.Drawing.Size(554, 231);
+            this.dgvTeachers.TabIndex = 1;
+            // 
+            // toolStripStatusLabel
+            // 
+            this.toolStripStatusLabel.Name = "toolStripStatusLabel";
+            this.toolStripStatusLabel.Size = new System.Drawing.Size(118, 17);
+            this.toolStripStatusLabel.Text = "toolStripStatusLabel1";
             // 
             // MainForm
             // 
@@ -134,9 +210,19 @@
             this.Controls.Add(this.statusStrip);
             this.Name = "MainForm";
             this.Text = "Academy PV_522";
+            this.statusStrip.ResumeLayout(false);
+            this.statusStrip.PerformLayout();
             this.tabControl.ResumeLayout(false);
+            this.tabPageStudents.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvStudents)).EndInit();
+            this.tabPageGroups.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvGroups)).EndInit();
             this.tabPageDirections.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dgvDirections)).EndInit();
+            this.tabPageDisciplines.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvDisciplines)).EndInit();
+            this.tabPageTeachers.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dgvTeachers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -152,6 +238,11 @@
         private System.Windows.Forms.TabPage tabPageDisciplines;
         private System.Windows.Forms.TabPage tabPageTeachers;
         private System.Windows.Forms.DataGridView dgvDirections;
+        private System.Windows.Forms.DataGridView dgvStudents;
+        private System.Windows.Forms.DataGridView dgvGroups;
+        private System.Windows.Forms.DataGridView dgvDisciplines;
+        private System.Windows.Forms.DataGridView dgvTeachers;
+        private System.Windows.Forms.ToolStripStatusLabel toolStripStatusLabel;
     }
 }
 

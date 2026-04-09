@@ -16,11 +16,21 @@ namespace Academy
     public partial class MainForm : Form
     {
         Connector connector;
+        DataGridView[] tables;
         public MainForm()
         {
             InitializeComponent();
+            tables = new DataGridView[] { dgvStudents,dgvGroups,dgvDirections,dgvDisciplines,dgvTeachers };
             connector = new Connector(ConfigurationManager.ConnectionStrings["PV_522_Import"].ConnectionString);
             dgvDirections.DataSource = connector.Select("SELECT * FROM Directions");
+            tabControl_SelectedIndexChanged(tabControl, null);
+        }
+
+        private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int i = (sender as TabControl).SelectedIndex;
+            tables[i].DataSource = connector.Select("*",tabControl.SelectedTab.Text);
+            toolStripStatusLabel.Text = $"Количество записей: {tables[i].RowCount - 1}";
         }
     }
 }

@@ -70,11 +70,11 @@ namespace DBtools
             connection.Close();
             return table;
         }
-        public void Select(string fields, string tables, string condition = "")
+        public DataTable Select(string fields, string tables, string condition = "")
         {
             string cmd = $"SELECT {fields} FROM {tables}";
             if (condition != "") cmd += $" WHERE {condition}";
-            Select(cmd);
+           return Select(cmd);
         }
         public object Scalar(string cmd)
         {
