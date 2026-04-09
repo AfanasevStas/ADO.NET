@@ -17,6 +17,18 @@ namespace Academy
     {
         Connector connector;
         DataGridView[] tables;
+        Query[] queries =
+            {
+                new Query("stud_id,last_name,first_name,middle_name,group_name,direction_name",
+                            "Students,Groups,Directions",
+                            "[group]=group_id AND direction=direction_id"),
+                new Query("group_id,group_name,start_date,start_time,learning_days,direction_name",
+                            "Groups,Directions",
+                            "direction=direction_id"),
+                new Query("*", "Directions"),
+                new Query("*", "Disciplines"),
+                new Query("*", "Teachers")
+            };
         public MainForm()
         {
             InitializeComponent();
@@ -29,7 +41,8 @@ namespace Academy
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
         {
             int i = (sender as TabControl).SelectedIndex;
-            tables[i].DataSource = connector.Select("*",tabControl.SelectedTab.Text);
+            tables[i].DataSource = connector.Select(queries[i].ToString());
+            //tables[i].DataSource = connector.Select("*",tabControl.SelectedTab.Text);
             toolStripStatusLabel.Text = $"Количество записей: {tables[i].RowCount - 1}";
         }
     }
