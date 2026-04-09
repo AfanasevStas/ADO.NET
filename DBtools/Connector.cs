@@ -18,6 +18,17 @@ namespace DBtools
             connection = new SqlConnection(connection_string);
             //Console.WriteLine(connection.ConnectionString);
         }
+        public DataTable Load(string cmd)
+        {
+            SqlCommand command = new SqlCommand(cmd, connection);
+            connection.Open();
+            SqlDataReader reader = command.ExecuteReader();
+            DataTable table = new DataTable();
+            table.Load(reader);
+            reader.Close();
+            connection.Close();
+            return table;
+        }
         public DataTable Select(string cmd)
         {
             DataTable table = new DataTable();
