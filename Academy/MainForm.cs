@@ -40,6 +40,14 @@ namespace Academy
             cbGroupsDirection.DataSource = connector.Load("SELECT * FROM Directions");
             cbGroupsDirection.DisplayMember = "direction_name";
             cbGroupsDirection.ValueMember = "direction_id";
+            ////////////////////////////////////////////////
+            cbStudentsGroups.DataSource = connector.Load("SELECT * FROM Groups");
+            cbStudentsGroups.DisplayMember = "group_name";
+            cbStudentsGroups.ValueMember = "group_id";
+            ///////////////////////
+            cbStudentsDirections.DataSource = connector.Load("SELECT * FROM Directions");
+            cbStudentsDirections.DisplayMember = "direction_name";
+            cbStudentsDirections.ValueMember = "direction_id";
         }
 
         private void tabControl_SelectedIndexChanged(object sender, EventArgs e)
@@ -50,10 +58,22 @@ namespace Academy
             toolStripStatusLabel.Text = $"Количество записей: {tables[i].RowCount - 1}";
         }
 
-        private void cbGroupsDirection_SelectionChangeCommitted(object sender, EventArgs e)
+        private void cbGroupsDirection_SelectionChangeCommitted(object sender, EventArgs e)//Event to Groups
         {
             dgvGroups.DataSource = connector.Load(queries[1].ToString() + $" AND direction={cbGroupsDirection.SelectedValue}");
             toolStripStatusLabel.Text = $"Количество записей: {dgvGroups.RowCount - 1}";
+        }
+
+        private void cbStudentsGroups_SelectionChangeCommitted(object sender, EventArgs e)//Event to Students 1
+        {
+            dgvStudents.DataSource = connector.Load(queries[0].ToString() + $" AND [group]={cbStudentsGroups.SelectedValue}");
+            toolStripStatusLabel.Text = $"Количество записей: {dgvStudents.RowCount - 1}";
+        }
+
+        private void cbStudentsDirections_SelectionChangeCommitted(object sender, EventArgs e)//Event to Students 2
+        {
+            dgvStudents.DataSource = connector.Load(queries[0].ToString() + $" AND direction = {cbStudentsDirections.SelectedValue}");
+            toolStripStatusLabel.Text = $"Количество записей: {dgvStudents.RowCount - 1}";
         }
     }
 }
