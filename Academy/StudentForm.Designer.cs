@@ -56,7 +56,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(642, 374);
+            this.ClientSize = new System.Drawing.Size(636, 421);
             this.Controls.Add(this.labelGroup);
             this.Controls.Add(this.cbStudentsGroup);
             this.Name = "StudentForm";

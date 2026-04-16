@@ -194,7 +194,7 @@
             // 
             this.buttonOK.DialogResult = System.Windows.Forms.DialogResult.OK;
             this.buttonOK.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonOK.Location = new System.Drawing.Point(295, 336);
+            this.buttonOK.Location = new System.Drawing.Point(295, 380);
             this.buttonOK.Name = "buttonOK";
             this.buttonOK.Size = new System.Drawing.Size(162, 33);
             this.buttonOK.TabIndex = 14;
@@ -206,7 +206,7 @@
             // 
             this.buttonCansel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.buttonCansel.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.buttonCansel.Location = new System.Drawing.Point(463, 336);
+            this.buttonCansel.Location = new System.Drawing.Point(463, 380);
             this.buttonCansel.Name = "buttonCansel";
             this.buttonCansel.Size = new System.Drawing.Size(162, 33);
             this.buttonCansel.TabIndex = 15;
@@ -226,7 +226,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(638, 378);
+            this.ClientSize = new System.Drawing.Size(638, 423);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.buttonOK);
