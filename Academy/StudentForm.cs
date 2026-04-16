@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DBtools;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -20,6 +21,14 @@ namespace Academy
             cbStudentsGroup.DisplayMember = "group_name";
             cbStudentsGroup.ValueMember = "group_id";
         }
+        public StudentForm(int stud_id, string last_name, string first_name, string middle_name, string birth_date, string email, string phone, Image photo, int group)//MY CODE
+                          : base(stud_id, last_name, first_name, middle_name, birth_date, email, phone, photo)
+        {
+            cbStudentsGroup.DataSource = DataBase.Connector.Load($"SELECT * FROM Student WHERE [group]= N'{group}'");
+            cbStudentsGroup.DisplayMember = "direction_name";
+            cbStudentsGroup.ValueMember = "direction_id";
+        }
+
 
         protected override void buttonOK_Click(object sender, EventArgs e)
         {

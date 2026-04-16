@@ -189,6 +189,7 @@
             this.buttonBrowse.TabIndex = 13;
             this.buttonBrowse.Text = "Обзор:";
             this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // buttonOK
             // 

@@ -10,6 +10,7 @@ using System.Windows.Forms;
 
 using System.Configuration;
 using DBtools;
+using System.Data.SqlClient;
 
 namespace Academy
 {
@@ -60,6 +61,37 @@ namespace Academy
         {
             StudentForm student = new StudentForm();
             student.ShowDialog();
+            dgvStudents.DataSource = connector.Select("SELECT * FROM Students");//MY CODE
+        }
+
+        private void dgvStudents_CellClick(object sender, DataGridViewCellEventArgs e)//MY CODE
+        {
+            if (e.RowIndex >= 0)
+            {
+                dgvStudents.ClearSelection();
+                dgvStudents.Rows[e.RowIndex].Selected = true;
+            }
+        }
+
+        private void dgvStudents_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)//MY CODE
+        {
+            DataGridViewRow row = dgvStudents.Rows[e.RowIndex];
+            int stud_id = Convert.ToInt32(row.Cells[0].Value);
+            string last_name = row.Cells[1].Value.ToString();
+            string first_name = row.Cells[2].Value.ToString();
+            string middle_name = row.Cells[3].Value.ToString();
+            string birth_date = row.Cells[4].Value.ToString();
+            string group = row.Cells[5].Value.ToString();
+
+            StudentUPDATE student = new StudentUPDATE(stud_id,
+                                                      last_name,
+                                                      first_name,
+                                                      middle_name,
+                                                      birth_date,
+                                                      group);
+            student.ShowDialog();
+            dgvStudents.DataSource = connector.Select("SELECT * FROM Students");
+            //D:\Загрузки Яндекс
         }
     }
 }
