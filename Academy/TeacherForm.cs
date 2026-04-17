@@ -43,7 +43,7 @@ namespace Academy
             else
             {
                 string A = Convert.ToString(teacher.rate);
-                A = A.Replace(",", ".");
+                A = A.Replace(",",".");
                 DataBase.Connector.Update($"UPDATE Teachers SET {teacher.GetUpdateString(A)} " +
                 $"WHERE teacher_id={teacher.id}");
             }
