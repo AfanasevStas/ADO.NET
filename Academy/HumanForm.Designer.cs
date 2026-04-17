@@ -40,11 +40,11 @@
             this.labelPhone = new System.Windows.Forms.Label();
             this.textBoxPhone = new System.Windows.Forms.TextBox();
             this.dtpBirthDate = new System.Windows.Forms.DateTimePicker();
-            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             this.buttonBrowse = new System.Windows.Forms.Button();
             this.buttonOK = new System.Windows.Forms.Button();
             this.buttonCansel = new System.Windows.Forms.Button();
             this.labelID = new System.Windows.Forms.Label();
+            this.pictureBoxPhoto = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxPhoto)).BeginInit();
             this.SuspendLayout();
             // 
@@ -170,16 +170,6 @@
             this.dtpBirthDate.Size = new System.Drawing.Size(251, 31);
             this.dtpBirthDate.TabIndex = 11;
             // 
-            // pictureBoxPhoto
-            // 
-            this.pictureBoxPhoto.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.pictureBoxPhoto.Location = new System.Drawing.Point(464, 15);
-            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
-            this.pictureBoxPhoto.Size = new System.Drawing.Size(162, 250);
-            this.pictureBoxPhoto.TabIndex = 12;
-            this.pictureBoxPhoto.TabStop = false;
-            // 
             // buttonBrowse
             // 
             this.buttonBrowse.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
@@ -189,6 +179,7 @@
             this.buttonBrowse.TabIndex = 13;
             this.buttonBrowse.Text = "Обзор:";
             this.buttonBrowse.UseVisualStyleBackColor = true;
+            this.buttonBrowse.Click += new System.EventHandler(this.buttonBrowse_Click);
             // 
             // buttonOK
             // 
@@ -222,16 +213,26 @@
             this.labelID.Size = new System.Drawing.Size(0, 25);
             this.labelID.TabIndex = 16;
             // 
+            // pictureBoxPhoto
+            // 
+            this.pictureBoxPhoto.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBoxPhoto.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.pictureBoxPhoto.Location = new System.Drawing.Point(464, 15);
+            this.pictureBoxPhoto.Name = "pictureBoxPhoto";
+            this.pictureBoxPhoto.Size = new System.Drawing.Size(162, 250);
+            this.pictureBoxPhoto.TabIndex = 17;
+            this.pictureBoxPhoto.TabStop = false;
+            // 
             // HumanForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(638, 423);
+            this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.labelID);
             this.Controls.Add(this.buttonCansel);
             this.Controls.Add(this.buttonOK);
             this.Controls.Add(this.buttonBrowse);
-            this.Controls.Add(this.pictureBoxPhoto);
             this.Controls.Add(this.dtpBirthDate);
             this.Controls.Add(this.textBoxPhone);
             this.Controls.Add(this.labelPhone);
@@ -269,10 +270,10 @@
         private System.Windows.Forms.Label labelPhone;
         private System.Windows.Forms.TextBox textBoxPhone;
         private System.Windows.Forms.DateTimePicker dtpBirthDate;
-        private System.Windows.Forms.PictureBox pictureBoxPhoto;
         private System.Windows.Forms.Button buttonBrowse;
         private System.Windows.Forms.Button buttonOK;
         private System.Windows.Forms.Button buttonCansel;
         private System.Windows.Forms.Label labelID;
+        private System.Windows.Forms.PictureBox pictureBoxPhoto;
     }
 }

@@ -70,5 +70,18 @@ namespace Academy
             StudentForm form = new StudentForm(id);
             if (form.ShowDialog() == DialogResult.OK) tabControl_SelectedIndexChanged(tabControl, null);
         }
+
+        private void buttonAddTeachers_Click(object sender, EventArgs e)//MY CODE
+        {
+            TeacherForm teacher = new TeacherForm();
+            if (teacher.ShowDialog() == DialogResult.OK) tabControl_SelectedIndexChanged(tabControl, null);
+        }
+
+        private void dgvTeachers_CellMouseDoubleClick(object sender, DataGridViewCellMouseEventArgs e)//MY CODE
+        {
+            int id = Convert.ToInt32(dgvTeachers.Rows[e.RowIndex].Cells[0].Value);
+            TeacherForm teacher = new TeacherForm(id);
+            if (teacher.ShowDialog() == DialogResult.OK) tabControl_SelectedIndexChanged(tabControl, null);
+        }
     }
 }

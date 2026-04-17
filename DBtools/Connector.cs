@@ -94,7 +94,6 @@ namespace DBtools
             connection.Open();
             value = command.ExecuteScalar();
             connection.Close();
-            connection.Close();
             return value;
         }
         public string GetPrimaryKeyColumnName(string table)
