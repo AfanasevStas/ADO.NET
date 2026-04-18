@@ -38,7 +38,7 @@ namespace Academy
             if (teacher.id == 0)
             {
                 teacher.id = teacher.teacher_id;
-                DataBase.Connector.Scalar($"INSERT Teachers({teacher.GetNames()}) VALUES({teacher.GetValues()});");
+                DataBase.Connector.Scalar($"INSERT Teachers({teacher.GetNames()}) VALUES({teacher.GetValues()});SCOPE_IDENTITY()");
             }
             else
             {
