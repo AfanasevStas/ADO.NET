@@ -45,6 +45,7 @@ namespace Academy
             dtpBirthDate.Value = Convert.ToDateTime( human.birth_date );
             textBoxEmail .Text = human.email;
             textBoxPhone .Text = human.phone;
+            pictureBoxPhoto .Image = human.photo;
         }
         protected virtual void buttonOK_Click(object sender, EventArgs e)
         {
